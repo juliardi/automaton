@@ -1,0 +1,17 @@
+{
+    "name": "juliardi/automaton",
+    "authors": [
+        {
+            "name": "Muhammad Safri Juliardi",
+            "email": "juliardi@student.uns.ac.id"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^2.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "automaton\\": "src/"
+        }
+    }
+}
