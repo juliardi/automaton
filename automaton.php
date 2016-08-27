@@ -1,7 +1,7 @@
 <?php
 
-use juliardi\automaton\HostGenerator;
-use juliardi\automaton\VhostGenerator;
+use automaton\HostGenerator;
+use automaton\VhostGenerator;
 
 require_once 'vendor/autoload.php';
 
@@ -10,7 +10,7 @@ if (trim(shell_exec('whoami')) != 'root') {
     exit(1);
 }
 
-$dotenv = new Dotenv\Dotenv(__DIR__);
+$dotenv = new Dotenv\Dotenv(dirname(__FILE__));
 $dotenv->load();
 
 $path_not_found = true;
@@ -30,7 +30,7 @@ $sure = readline("Are you sure to create '$server_name' for '$document_root' ? (
 if ($sure == 'Y') {
     $vhost = new VhostGenerator([
         'template_dir' => __DIR__.DIRECTORY_SEPARATOR.getenv('TEMPLATE_DIR'),
-        'apache_conf_dir' => getenv('APACHE_CONF_DIR'),
+        'apache_conf_file' => getenv('APACHE_CONF_FILE'),
         'vhost_conf_dir' => getenv('VHOST_CONF_DIR'),
         'log_dir' => getenv('LOG_DIR'),
         'server_name' => $server_name,

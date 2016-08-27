@@ -31,7 +31,7 @@ class VhostGenerator extends Base
     {
         $append_text = 'Include "'.$conf_filename.'"';
 
-        return $this->appendFile($this->apache_conf_dir, $append_text);
+        return $this->appendFile($this->apache_conf_file, $append_text);
     }
 
     private function replaceString($templateContent)
