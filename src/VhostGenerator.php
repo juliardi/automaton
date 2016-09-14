@@ -29,7 +29,7 @@ class VhostGenerator extends Base
 
     public function includeConfToApache($conf_filename)
     {
-        $append_text = 'Include "'.$conf_filename.'"';
+        $append_text = "\n".'Include "'.$conf_filename.'"';
 
         return $this->appendFile($this->apache_conf_file, $append_text);
     }
